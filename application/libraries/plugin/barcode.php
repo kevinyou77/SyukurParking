@@ -9,16 +9,18 @@
     $parkingLocation    = $_POST['parkingLocation'];
     $parkingLocationRow = $_POST['parkingLocationRow'];
     $vehicleType        = $_POST['vehicleType'];
+    $bookingNumber      = $_POST['bookingNumber'];
 
     $day         = date('l');
-    $fullDate    =  date("d M Y H:i:s");
+    $fullDate    = new DateTime();
+    $fullDate->setTimeZone(new DateTimeZone("Asia/Jakarta"));
 
     echo '<center><h4>SyukurParking</h4></center>';
     echo '<center>'.$parkingLocation.'</center>';
     echo '<center><div style="height: 30%; width: 50%;">';
     echo '<b>'.bar128(stripcslashes($_POST['bookingNumber'])).'</b>';    
     echo '<b>'.$vehicleType.'</b><br>';
-    echo $day . ', ' . $fullDate;
+    echo $day . ', ' . $fullDate->format('Y-m-d H:i:s');
     echo '</div></center>';
 
     //Select and join two tables to get the locationID
@@ -29,7 +31,7 @@
 
     //Insert into list of Parking List
     $query  = "INSERT INTO TrParking (ParkingID, LocationID, InTime, VehicleType) VALUES (?, ?, ?, ?)";
-    $params = array($parkingID, $locationID, $fullDate, $vehicleType);
+    $params = array($bookingNumber, $locationID, $fullDate->format('Y-m-d H:i:s'), $vehicleType);
     $res    = sqlsrv_query($conn, $query, $params); 
 
     //Set taken to 1, means that the parking position is already taken
