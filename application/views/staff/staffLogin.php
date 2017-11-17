@@ -15,23 +15,29 @@
         include "../../config/connect.php";
         session_start();
         
-        if (isset($_SESSION['login-user']) || isset($_SESSION['login-staff'])) {
-            header('location: www.google.com');
+        if (isset($_SESSION['login-staff'])) {
+            header('location: ../../parking/parkingOutHome.php');
+        } else if (isset($_SESSION['login-user'])) {
+            header('location: ../../booking/parkingBooking.php');
         } else {
     ?>
-    <form action="../../libraries/staff/login.php" method="POST">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-        </div>      
-    
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-        </div>  
+    <div class="login">
+        <h3>SyukurParking - Staff</h3>
+        <form action="../../libraries/staff/login.php" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+            </div>      
+        
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            </div>  
 
-        <button>Submit</button>
-    </form>
+            <button>Login</button>
+        </form>
+    </div>
+        
 
     <?php
         }
