@@ -13,7 +13,7 @@
     <script>
         setTimeout(() => {
             location.reload();
-        }, 30000);
+        }, 10000);
     </script>
 </head>
 <body>

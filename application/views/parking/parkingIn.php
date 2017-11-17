@@ -35,7 +35,7 @@
                     <form action="../../libraries/plugin/barcode.php" method="POST">
                         <div class="form-group">
                             <label for="bookingNumber">Booking Number</label>
-                            <input type="text" class="form-control" name="bookingNumber" id="bookingNumber" placeholder="Booking Number">
+                            <input type="text" class="form-control" name="bookingNumber" id="bookingNumber" placeholder="Booking Number" required>
                             
                             <select name="vehicleType" id="vehicleType">
                                 <option value="Car">Car</option>
