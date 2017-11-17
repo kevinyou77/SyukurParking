@@ -38,7 +38,7 @@
         $res = sqlsrv_query($conn, $query, $params);
             
         if ($res) {
-            echo "Success";
+            header('location: ../../views/parking/parkingOutHome.php');
         } else {
             echo "nope";
             die(print_r(sqlsrv_errors(), true));

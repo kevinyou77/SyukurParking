@@ -14,8 +14,10 @@
             <?php
                 session_start();
                 
-                if (isset($_SESSION['user-email']) || isset($_SESSION['staff-email'])) {
-                    header('location: www.google.com');
+                if (isset($_SESSION['user-email'])) {
+                    header('location: application/views/parking/parkingHome.php');
+                } else if (isset($_SESSION['staff-email'])) {
+                    header('location: application/views/parking/parkingOutHome.php');
                 } else {
             ?>
             <h3>Syukur Parking</h3>
@@ -38,7 +40,7 @@
                 <a href="application/views/staff/staffLogin.php">Login as Staff</a>
                 <a href="#">I forgot my password</a>
                 <a href="application/views/resetPassword.php">Reset my password</a>
-                <a href="application/views/staff/customerRegister.php">Register a new membership</a>
+                <a href="application/views/customer/customerRegister.php">Register a new membership</a>
             </form>
 
             <?php

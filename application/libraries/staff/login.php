@@ -14,7 +14,7 @@
     if ($numRows == 1) {    
         $_SESSION['login-staff'] = true;
         $_SESSION['staff-email'] = $email;
-        //header('Location: http://www.google.com');
+        header('location: ../../views/parking/parkingOutHome.php');
     } else {
         echo "Ooops, something is wrong";
         session_destroy();

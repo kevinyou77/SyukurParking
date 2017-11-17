@@ -35,6 +35,6 @@
     $res    = sqlsrv_query($conn, $query, $params); 
 
     //Set taken to 1, means that the parking position is already taken
-    $queryParkingPositionTaken = "UPDATE TrBookingLocation SET a.Taken = '1' FROM TrBookingLocation a INNER JOIN TrParking b ON a.ID = b.LocationID";
+    $queryParkingPositionTaken = "UPDATE TrBookingLocation SET a.Taken = 1 FROM TrBookingLocation a INNER JOIN TrParking b ON a.ID = b.LocationID";
     $updateRes = sqlsrv_query($conn, $queryParkingPositionTaken);
 ?>

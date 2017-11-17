@@ -10,26 +10,39 @@
     <script src="../../assets/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-    <form action="../../libraries/customer/insertCustomer.php" onsubmit="" method="POST" enctype="multipart/form-data">
-        <label for="email">Name</label>
-        <input type="text" name="name" id="name" placeholder="Name">
+    <div class="login">
+        <form action="../../libraries/customer/insertCustomer.php" onsubmit="" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Name">
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Address</label><br>
+                <textarea name="address" id="address" cols="30" rows="10"></textarea>
+            </div>
 
-        <label for="address">Address</label>
-        <textarea name="address" id="address" cols="30" rows="10"></textarea>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" name="phone" id="phone" placeholder="Phone Number">
+            </div>
 
-        <label for="phone">Phone Number</label>
-        <input type="text" name="phone" id="phone" placeholder="Phone Number">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Email">
+            </div>
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="Email">
-        
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="Password">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
 
-        <label for="profile-picture">Profile Picture</label>
-        <input type="file" name="profile-picture" id="profile-picture">
-
-        <button id="register" name="register">Register</button>
-    </form>
+            <div class="form-group">
+                <label for="profile-picture">Profile Picture</label>
+                <input type="file" name="profile-picture" id="profile-picture">
+            </div>
+            <button id="register" name="register">Register</button>
+        </form>
+    </div>
 </body>
 </html>

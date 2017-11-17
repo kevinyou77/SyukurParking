@@ -14,7 +14,7 @@
     if ($numRows == 1) {    
         $_SESSION['login-user'] = true;
         $_SESSION['user-email'] = $email;
-        //header('Location: http://www.google.com');
+        header('Location: ../../views/parking/parkingHome.php');
     } else {
         echo "Wrong email or password!";
         session_destroy();

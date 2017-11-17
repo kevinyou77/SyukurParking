@@ -31,10 +31,9 @@
         $res    = sqlsrv_query($conn, $query, $params);
 
         if ($res) {
-            echo "Success";
-            // header("Location: ../../views/customerRegister.php");
+            header("Location: ../../views/parking/parkingHome.php");
         } else {
-            echo "nope";
+            header("Location: ../../views/customer/customerRegister.php");
             die(print_r(sqlsrv_errors(), true));
         }
     
