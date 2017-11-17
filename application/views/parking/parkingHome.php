@@ -17,20 +17,29 @@
     </script>
 </head>
 <body>
-    <h3>Parking Availability</h3>
+    <center><h3>Parking Availability</h3></center>
+
     <?php
         include "../../config/connect.php";
         session_start();
 
+        $username = $_SESSION['user-email'];
+
         $query = "SELECT * FROM LtParkingLocation";
 
         $res = sqlsrv_query($conn, $query, array(), array( "Scrollable" => 'static' ));
+    ?>
 
+        <center><p>Welcome, <?php echo $username; ?></p></center>
+        <center><a href="../../views/logout.php">Logout</a></center>
+    
+    <?php
         while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC)) {
             $locationName = $row['LocationName'];
             $ParkingSpace = $row['ParkingSpace'];
     ?>
-        <div class="info">
+        <div class="login">
+            
             <p><?php echo $locationName ?></p>
             
             <p>Capacity : <?php echo $ParkingSpace ?></p>
