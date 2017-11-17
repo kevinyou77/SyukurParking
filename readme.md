@@ -14,7 +14,7 @@
 * [FPDF](http://www.fpdf.org/)
 
 #### To-do
-* <s>Parking out</s>
+* ~~Parking out~~
 * Online Booking
 * Admin Page
 * Restyling
