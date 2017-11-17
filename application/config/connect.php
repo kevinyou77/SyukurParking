@@ -1,12 +1,13 @@
 <?php
     $serverName = "DESKTOP-MKTEBIE";  
-    $connectionOptions = array("Database"=>"SyukurParking");  
+    $connectionOptions = array(
+        "Database"=>"SyukurParking",
+        "ReturnDatesAsStrings" => true
+    );  
 
     $conn = sqlsrv_connect($serverName, $connectionOptions); 
 
     if(!$conn)  { 
-        echo "something is wrong";
-    } else {
-        echo "Yas!";
+        die(print_r(sqlsrv_error(), true));
     }
 ?>
