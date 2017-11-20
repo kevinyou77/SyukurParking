@@ -17,43 +17,48 @@
 </head>
 <body>
         <h1>SyukurParking - Booking</h1>
+        <div class="login">
+            <?php
+                include "../../config/connect.php";
+                session_start();
 
-        <?php
-            include "../../config/connect.php";
-            session_start();
+                $query = "SELECT * FROM TrBookingLocation a LEFT JOIN TrParking b
+                            ON a.ID = b.ID";
+                $res   = sqlsrv_query($conn, $query, array(), array("Scrollable" => "Static"));
 
-            $query = "SELECT * FROM TrBookingLocation a LEFT JOIN TrParking b
-                        ON a.ID = b.ID";
-            $res   = sqlsrv_query($conn, $query, array(), array("Scrollable" => "Static"));
+                while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC)) {
+                    $parkingLocation = $row['ParkingLocation'];
+                    $taken           = $row['Taken'];
+                    $parkingID       = $row['ParkingID'];
 
-            while ($row = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC)) {
-                $parkingLocation = $row['ParkingLocation'];
-                $taken           = $row['Taken'];
-                $parkingID       = $row['ParkingID'];
+                    
+            ?>
+                    <div class="parking">
+                        <p><?php echo $parkingLocation; ?></p>
 
-                
-        ?>
-                <div class="parking">
-                    <p><?php echo $parkingLocation; ?></p>
-
-        <?php
-                if ($taken == 1) {
-                    echo '<p>Occupied</p>';
-                    echo '<p>' . $parkingID . '</p>';
-                } else {
-                    echo '<p>Empty</p>';
+            <?php
+                    if ($taken == 1) {
+                        echo '<p>Occupied</p>';
+                        echo '<p>' . $parkingID . '</p>';
+                    } else {
+                        echo '<p>Empty</p>';
+                    }
+            
+            ?>      
+                        <form action="bookPage.php" method="POST">
+                            <div class="form-group">
+                                <label for="parking-location">Parking Location</label>
+                                <input type="hidden" name="parking-location" id="parking-location" value="<?php echo $parkingLocation; ?>">
+                            </div>
+                            
+                            <button>Book</button>
+                        </form>
+                    
+                    </div>
+            <?php
                 }
-        
-        ?>      
-                    <form action="bookPage.php" method="POST">
-                        <input type="hidden" name="parking-location" id="parking-location" value="<?php echo $parkingLocation; ?>">
-                        <button>Book</button>
-                    </form>
-                
-                </div>
-        <?php
-            }
-        ?>
+            ?>
+            </div>
             
 </body>
 </html>
