@@ -6,6 +6,7 @@
 * CSS
 * Javascript
 * PHP
+* Microsoft SQL Server
 
 ####[Project GitHub](https://github.com/kevinyou77/SyukurParking)
 
